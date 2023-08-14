@@ -125,7 +125,7 @@ class Get(pycamunda.base.CamundaRequest):
                         _request = requests
                     if self.auth is not None:
                         request_data['auth'] = self.auth
-                    response = requests.get(self.url + '/errorDetails')
+                    response = requests.get(self.url + '/errorDetails', **request_data)
                 except requests.exceptions.RequestException:
                     raise pycamunda.PyCamundaException()
                 if not response:
